@@ -10,7 +10,9 @@ from Handlers.handle_show_list import handle_show_list
 from Handlers.handle_remove_item_from_the_list import handle_remove_item_from_the_list
 from Handlers.handle_restore_list import handle_restore_list
 from Handlers.handle_update_item_quantity import handle_update_item_quantity
+from keep_alive import keep_alive
 
+keep_alive()
 
 async def shoplisBot(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     message_text = update.message.text.lower()
