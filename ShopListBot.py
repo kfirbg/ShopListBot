@@ -1,5 +1,5 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, MessageHandler, filters, ContextTypes, CallbackQueryHandler, CommandHandler
+from telegram.ext import MessageHandler, filters, ContextTypes, CallbackQueryHandler, CommandHandler, ApplicationBuilder
 
 from Buttons.answer_with_send_yes_no_buttons import answer_with_send_yes_no_buttons
 from Handlers.handle_display_list import handle_display_list
@@ -79,7 +79,7 @@ async def start(update: Update, context):
 
 
 def main():
-    application = Application.builder().token("7011966180:AAFbc2gwpjQvMAlUv_ckutQlq9lM7RBfHeU").build()
+    application = ApplicationBuilder.token("7011966180:AAFbc2gwpjQvMAlUv_ckutQlq9lM7RBfHeU").build()
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, shoplisBot))
 
     application.add_handler(CallbackQueryHandler(handle_show_list, pattern="^show_list$"))
